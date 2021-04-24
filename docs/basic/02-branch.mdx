@@ -1,0 +1,54 @@
+# 條件判斷 if else
+
+在 `if()` 中的 expression 如果為 truthy，就執行裡面的東西，反之則執行 else 區塊。else 不是必要的，沒有也可以。
+
+## 只有 if
+
+``` js
+var score = 80
+if (score >= 60) {
+  console.log('pass')
+}
+```
+
+## if + else
+
+``` js
+var score = 80
+if (score >= 60) {
+  console.log('pass')
+} else {
+  console.log('fail')
+}
+```
+
+## if + else if
+
+``` js
+var score = 80
+if (score === 100) {
+  console.log('perfect')
+} else if (score >= 60) {
+  console.log('pass')
+} else {
+  console.log('fail')
+}
+```
+
+因為 if 只看裡面的條件是否為 truthy，所以底下範例：
+
+``` js
+if (isCancel === true) {
+  // do something
+}
+```
+
+可以直接寫成：
+
+``` js
+if (isCancel) {
+  // do something
+}
+```
+
+false 的情況也是，比起 `if(condition === false)`，直接寫成：`if (!condition)` 就行了。

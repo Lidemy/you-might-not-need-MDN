@@ -25,11 +25,11 @@ export default function Home() {
         <div class="row">
           <div class="col col--4">
             <ul>
-              <li><Link to="/docs/syntax">基本語法</Link></li>
-              <li><Link to="/docs/es6">ES6</Link></li>
-              <li><Link to="/docs/object">物件</Link></li>
-              <li><Link to="/docs/array">陣列</Link></li>
-              <li><Link to="/docs/string">字串</Link></li>
+              <li><Link to="/docs/variable">基本語法</Link></li>
+              <li><Link to="/docs/new-syntax/template">ES6</Link></li>
+              <li><Link to="/docs/object/assign">物件</Link></li>
+              <li><Link to="/docs/array/concat">陣列</Link></li>
+              <li><Link to="/docs/string/chatCodeAt">字串</Link></li>
             </ul>
           </div>
           <div class="col col--8">

@@ -1,8 +1,4 @@
-# 基本語法
-
-JavaScript 基本語法
-
-## 變數宣告 var/let/const
+# 變數宣告 var/let/const
 
 在 JavaScript 裡面有三種宣告變數的方式，主要的差別在於變數的 scope 與是不是能夠重新賦值。
 
@@ -13,7 +9,7 @@ JavaScript 基本語法
 | hoisting    | O | O | O |
 | TDZ    | X | O | O |
 
-### var
+## var
 
 var 的 scope 是 function，所以就算在 if else 裡面宣告，在外面也能存取這個變數。但只要超過 function 外就不行。
 
@@ -28,7 +24,7 @@ test()
 console.log(a) // 超出範圍，ReferenceError: a is not defined
 ```
 
-### let
+## let
 
 與 var 類似，但 scope 侷限在 block。舉例來說，在 if else 裡面宣告時就只能在那裡面使用。function 也算是一種 block，所以底下 b 的 scope 就是 test function，超出範圍就無法存取。
 
@@ -49,7 +45,7 @@ test()
 console.log(b)
 ```
 
-### const
+## const
 
 與 let 類似，scope 一樣是 block，差別在於是否能重新賦值，以及 const 一定要宣告初始值。
 
@@ -75,58 +71,3 @@ a.name = 'nick'
 如果想真的阻止物件被修改，請使用 [Object.freeze
 
 關於 hoisting 跟 TDZ 的解釋可以參考：[我知道你懂 hoisting，可是你了解到多深？](https://blog.huli.tw/2018/11/10/javascript-hoisting-and-tdz/)
-
-## 條件判斷 if else
-
-在 `if()` 中的 expression 如果為 truthy，就執行裡面的東西，反之則執行 else 區塊。else 不是必要的，沒有也可以。
-
-### 只有 if
-
-``` js
-var score = 80
-if (score >= 60) {
-  console.log('pass')
-}
-```
-
-### if + else
-
-``` js
-var score = 80
-if (score >= 60) {
-  console.log('pass')
-} else {
-  console.log('fail')
-}
-```
-
-### if + else if
-
-``` js
-var score = 80
-if (score === 100) {
-  console.log('perfect')
-} else if (score >= 60) {
-  console.log('pass')
-} else {
-  console.log('fail')
-}
-```
-
-因為 if 只看裡面的條件是否為 truthy，所以底下範例：
-
-```
-if (isCancel === true) {
-  // do something
-}
-```
-
-可以直接寫成：
-
-```
-if (isCancel) {
-  // do something
-}
-```
-
-false 的情況也是，比起 `if(condition === false)`，直接寫成：`if (!condition)` 就行了。
