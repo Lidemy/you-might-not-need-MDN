@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import HomepageFeatures from '../components/HomepageFeatures';
+import Link from '@docusaurus/Link';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -12,14 +11,6 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
       </div>
     </header>
   );
@@ -28,13 +19,25 @@ function HomepageHeader() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+    <Layout>
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
+      <div class="intro container">
+        <div class="row">
+          <div class="col col--4">
+            <ul>
+              <li><Link to="/docs/syntax">基本語法</Link></li>
+              <li><Link to="/docs/es6">ES6</Link></li>
+              <li><Link to="/docs/object">物件</Link></li>
+              <li><Link to="/docs/array">陣列</Link></li>
+              <li><Link to="/docs/string">字串</Link></li>
+            </ul>
+          </div>
+          <div class="col col--8">
+            { siteConfig.tagline } 一開始接觸 JavaScript 有可能對程式語言還不甚熟悉，正式文件的閱讀難度還是很高，希望打造一個更入門的 Cheat Sheet 文件供新手學習。
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 }
+
