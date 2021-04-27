@@ -2,7 +2,9 @@
 
 在 `if()` 中的 expression 如果為 truthy，就執行裡面的東西，反之則執行 else 區塊。else 不是必要的，沒有也可以。
 
-## 只有 if
+## 基本使用
+
+### 只有 if
 
 ``` js
 var score = 80
@@ -11,7 +13,7 @@ if (score >= 60) {
 }
 ```
 
-## if + else
+### if + else
 
 ``` js
 var score = 80
@@ -22,18 +24,57 @@ if (score >= 60) {
 }
 ```
 
-## if + else if
+### if + else if
 
 ``` js
 var score = 80
 if (score === 100) {
   console.log('perfect')
+} else if (score >= 90) {
+  console.log('good')
 } else if (score >= 60) {
   console.log('pass')
 } else {
   console.log('fail')
 }
 ```
+
+`if` 後面的 `()` 一定要加，但是 `{}` 不一定要。通常在 block 裡面只需要做一件事的時候，會選擇不加（但要看每個 codebase 的規範，有的可能是規範無論如何都要加）：
+
+``` js
+var score = 60
+if (score >= 60) {
+  console.log('pass')
+}
+
+// 也可以寫成這樣
+if (score >= 60) console.log('pass')
+```
+
+## 常見錯誤
+
+比較常見的錯誤用法是把兩個等號 `==` 打成一個等號 `=`：
+
+``` js
+var score = 60
+if (score = 100) {
+  console.log('perfect!')
+}
+```
+
+上面的 `if (score = 100)` 會先執行裡面的賦值 `score = 100` 再對 score 進行判斷 `if (score)`，所以其實會是這樣：
+
+``` js
+var score = 60
+score = 100
+if (score) {
+  console.log('perfect!')
+}
+```
+
+因此無論如何都會是 true，所以 if 裡面的東西都會執行。
+
+## 使用建議
 
 因為 if 只看裡面的條件是否為 truthy，所以底下範例：
 

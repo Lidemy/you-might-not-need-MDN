@@ -1,0 +1,107 @@
+# 條件判斷 switch case
+  
+當你有多項條件要判斷的時候，比起多個 `else if`，可以考慮看看 switch case。
+
+## 基本使用
+
+``` js
+var statusCode = 200
+switch (statusCode) {
+  case 200:
+    console.log('success!')
+    break
+
+  case 301:
+    console.log('redirect')
+    break
+
+  case 500:
+    console.log('server error')
+    break
+
+  default:
+    console.log('unknown status code')
+}
+```
+
+default 是 optional 的，也可以不加。
+
+如果有不同條件需要執行一樣的動作，可以把 case 合併在一起：
+
+``` js
+var statusCode = 200
+switch (statusCode) {
+  case 200:
+    console.log('success!')
+    break
+
+  case 301:
+    console.log('redirect')
+    break
+
+  case 500:
+  case 501:
+  case 502:
+    console.log('server error')
+    break
+
+  default:
+    console.log('unknown status code')
+}
+```
+
+## 常見錯誤
+
+最常見的是忘記加上 break，如果沒有加的話，就會繼續往下執行（不管條件有沒有符合），直到碰到 break 為止：
+
+``` js
+var statusCode = 301
+switch (statusCode) {
+  case 200:
+    console.log('success!')
+    break
+
+  case 301:
+    console.log('redirect')
+    // 這邊忘了加
+
+  case 500:
+  case 501:
+  case 502:
+    console.log('server error')
+    break
+
+  default:
+    console.log('unknown status code')
+}
+```
+
+以上面的例子來說，就會輸出 `redirect` 跟 `server error`。
+
+## 其它用法
+
+switch case 只支援單一條件的判斷，最常見的就是拿來判斷數字或是字串。
+
+但也有這種用法：
+
+``` js
+var statusCode = 301
+switch (true) {
+  case (statusCode === 200):
+    console.log('success!')
+    break
+
+  case (statusCode === 301 || statusCode === 302):
+    console.log('redirect')
+    break
+
+  case (500 <= statusCode && statusCode < 600):
+    console.log('server error')
+    break
+
+  default:
+    console.log('unknown status code')
+}
+```
+
+這種用法透過 `switch(true)`，搭配 case 後面接 expresstion，就變成 `if (true === expression)` 這種形式，來達成更彈性的條件判斷。

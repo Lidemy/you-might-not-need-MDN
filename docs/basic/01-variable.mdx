@@ -13,7 +13,7 @@
 
 var 的 scope 是 function，所以就算在 if else 裡面宣告，在外面也能存取這個變數。但只要超過 function 外就不行。
 
-```javascript live
+```javascript
 function test() {
   if (true) {
     var a = 1
@@ -68,6 +68,6 @@ const a = {name: 'peter'}
 a.name = 'nick'
 ```
 
-如果想真的阻止物件被修改，請使用 [Object.freeze
+如果想真的阻止物件被修改，請使用 [Object.freeze](/docs/object/freeze)
 
 關於 hoisting 跟 TDZ 的解釋可以參考：[我知道你懂 hoisting，可是你了解到多深？](https://blog.huli.tw/2018/11/10/javascript-hoisting-and-tdz/)

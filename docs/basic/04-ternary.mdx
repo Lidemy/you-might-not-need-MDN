@@ -1,0 +1,44 @@
+# 條件判斷 ternary
+  
+ternary 的中文翻譯為：三元運算子，是一種比 if else 更輕便的方法。
+
+## 基本使用
+
+``` js
+var statusCode = 400
+var status = statusCode === 200 ? 'success' : 'fail'
+```
+
+上述範例中如果前面的 `statusCode === 200` 成立，就會回傳冒號前的 `success`，反之如果不成立則回傳 `fail`。
+
+寫成 if 等價於這樣：
+
+``` js
+var statusCode = 400
+var status
+if (statusCode === 200) {
+  status = 'success'
+} else {
+  status = 'fail'
+}
+```
+
+對於這種只需要判斷兩個條件，然後要做的事情又偏少的狀況，會傾向用 ternary 來處理。
+
+## 其它用法
+
+如果你真的想要的話，ternary 可以是巢狀的：
+
+``` js
+var score = 60
+var status = 
+  score === 100 ? 'perfect' : 
+    (score >= 60 ? 'pass' : 'fail')
+```
+
+可以先把後面那段包住的 `(score >= 60 ? 'pass' : 'fail')` 先看成 `x`，那就變成：`score === 100 ? 'perfect' : x`。
+
+所以如果 score 是 100 就會回傳 perfect，反之則回傳 x，那 x 就是 `(score >= 60 ? 'pass' : 'fail')`，所以會再執行一次運算，條件成立就是 pass，反之 fail。
+
+以此類推，你可以接無限層的 ternary，但一般來說不建議這樣做。ternary 有些人只能接受一層，有些人可以接受到兩層，但通常兩層以上就會建議改用 if else 來做了，否則可讀性不太好。
+
