@@ -1,0 +1,23 @@
+# 判斷開頭結尾 startsWith, endsWith
+
+&nbsp;
+
+## 基本使用
+
+想要快速判斷一個字串的開頭是不是符合某個字串的時候，可以使用 `startsWith`：
+
+``` js
+'abc'.startsWith('http') // false
+'http://'.startsWith('http') // true
+'https://'.startsWith('http') // true
+'http'.startsWith('http') // true
+```
+
+想要快速判斷一個字串的結尾是不是符合某個字串的時候，可以使用 `endsWith`：
+
+``` js
+'abc.com'.endsWith('.tw') // false
+'huli.tw'.endsWith('.tw') // true
+'a.b.c.t.tw'.endsWith('.tw') // true
+'.tw'.endsWith('.tw') // true
+```

@@ -29,7 +29,7 @@ export default function Home() {
               <li><Link to="/docs/new-syntax/template">ES6</Link></li>
               <li><Link to="/docs/object/assign">物件</Link></li>
               <li><Link to="/docs/array/concat">陣列</Link></li>
-              <li><Link to="/docs/string/chatCodeAt">字串</Link></li>
+              <li><Link to="/docs/string/charCodeAt">字串</Link></li>
             </ul>
           </div>
           <div class="col col--8">

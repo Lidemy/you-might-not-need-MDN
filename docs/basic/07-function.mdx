@@ -1,0 +1,150 @@
+# 函式 function
+
+函式就跟大家在國中時學過的 `y = f(x)` 差不多，y 是輸出，f 是函式，x 是參數，寫成程式碼會類似這樣：
+
+``` js
+function f(x) {
+  return y
+}
+```
+
+## 基本使用
+
+基本的函式宣告：
+
+``` js
+function add(a, b) {
+  return a + b
+}
+```
+
+要使用函式的時候，要在後面加上小括號並且傳入參數，沒有傳的話就會是 undefined，而回傳值則是用 return 傳回：
+
+``` js
+let result = add(3, 5) // result 的值就是 add 裡面 return 的值
+console.log(result) // 8
+```
+
+上面宣告函式的方法叫做 function declaration，還有一種類似的叫做 function expression：
+
+``` js
+var add = function(a, b) {
+  return a + b
+}
+```
+
+看起來雖然類似，但有一些細微的差別。上面的程式碼其實是：「宣告一個匿名函式（沒有名字的函式）並且賦值給變數 add」，所以嚴格來說這個函式是沒有名字的，add 有點像是「暱稱」的感覺。
+
+## 常見錯誤
+
+### return 的錯誤使用
+
+這邊有兩種，第一種是有些人會忘記 return 會直接終止函式執行。只要一 return 了，後面的程式碼全部都不會執行到：
+
+``` js
+function test() {
+  for(let i=0; i<10; i++) {
+    if (i === 5) return
+    console.log(i)
+  }
+}
+
+test()
+```
+
+上述迴圈跑到 i=5 之後就執行 return，函式就結束了，所以也不會有下一圈迴圈。
+
+第二種錯誤使用是以為 return 可以在任何地方用來終止程式執行。沒有，它只能用在函式裡面。
+
+### 以為函式可以沒有回傳值
+
+如果函式沒有加任何 return，那預設的回傳值就會是 undefined。所以函式沒辦法真的什麼都不回傳，一定會有回傳值。
+
+### 分不清楚函式跟執行函式
+
+``` js
+window.onload = alert   // 1
+window.onload = alert() // 2
+```
+
+上面這兩行差在哪邊？
+
+`window.onload` 後面接的應該要是一個「函式」，所以第一行就是說：「window onload 的時候幫我呼叫 alert 這個函式」。
+
+但下面那行他是：「執行函式」，所以意思是說：「先幫我執行 alert() 這函式，然後假設回傳值是 result，window onload 的時候幫我呼叫 result」。
+
+後者的 alert 在一跑到那一行的時就會執行。
+
+### 以為參數名稱固定
+
+在 JavaScript 裡面參數「只看順序，不看名稱」，所以：
+
+``` js
+function sayHello(name, phone) {
+  alert(name + ', your phone is:' + phone)
+}
+
+let name = 'peter'
+let phone = 123456
+sayHello(phone, name) // 
+```
+
+會跳出的是：「123456, your phone is peter」，因為第一個參數就會被當作是 name，第二個就會是 phone。
+
+同理，在函式內的參數名稱也跟外面不會影響，可以隨便改，例如說：
+
+``` js
+button.onclick = function(e) { }
+button.onclick = function(evt) { }
+button.onclick = function(event) { }
+button.onclick = function(whatever) { }
+```
+
+那四個參數的值都會是一樣的，不會因為命名不同而不同。
+
+## 使用建議
+
+### Early return
+
+當你有很多條件要判斷的時候，會容易寫出巢狀的 if else，但其實有很多分支其實都只做一點事情：
+
+``` js
+if (K === '1') {
+  if (arr1.length === arr2.length) {
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return arr1[i] > arr2[i] ? 'A' : 'B';
+      }
+    }
+  } else {
+    return arr1.length > arr2.length ? 'A' : 'B';
+  }
+} else {
+  return false;
+}
+```
+
+這時候可以掌握一個原則：「可以 return 的條件就先判斷，然後就先 return」，就可以把結構給「壓平」，讓程式可讀性提昇。
+
+舉例來說，上述程式碼可以變成這樣：
+
+``` js
+// 條件反過來寫，就可以先 return，底下就不用接 else
+if (K !== '1') {
+  return false
+}
+
+// 這也是，先 return
+if (arr1.length !== arr2.length) {
+  return arr1.length > arr2.length ? 'A' : 'B';
+}
+
+// 最後才做要做比較多事情的段落
+for (let i = 0; i < arr1.length; i++) {
+  if (arr1[i] !== arr2[i]) {
+    return arr1[i] > arr2[i] ? 'A' : 'B';
+  }
+}
+```
+
+原本一大堆 else 跟縮排的語法，被壓平之後眼睛不用跳來跳去，可以順順地閱讀程式碼。

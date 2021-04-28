@@ -1,0 +1,33 @@
+# 切割字串 split
+
+&nbsp;
+
+## 基本使用
+
+split 可以把一個字串用你想要的字切成陣列，例如說：
+
+``` js
+let str = 'apple orange guava'
+let arr = str.split(' ') // 用空白切
+console.log(arr) // ['apple', 'orange', 'guava']
+
+let str2 = '1,2,3'
+let arr2 = str2.split(',') // 用逗號切
+console.log(arr2) // ['1', '2', '3']
+```
+
+如果字串中沒有你要切的字元，那還是會回傳一個陣列，只是裡面就是你原本的元素：
+
+``` js
+let str = 'apple'
+let arr = str.split(' ')
+console.log(arr) // ['apple']
+```
+
+如果用空字串來切，結果會把每一個字元都變成一個陣列的元素：
+
+``` js
+let str = 'apple'
+let arr = str.split('')
+console.log(arr) // ['a', 'p', 'p', 'l', 'e']
+```

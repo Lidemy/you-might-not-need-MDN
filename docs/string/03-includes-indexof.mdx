@@ -1,0 +1,21 @@
+# 尋找字串 includes, indexOf
+
+&nbsp;
+
+## 基本使用
+
+當你想要判斷某個字串是不是出現在字串裡的時候，可以用 `includes`
+
+``` js
+'abc'.includes('http') // false
+'http://'.includes('http') // true
+'site url: http://abc'.includes('http') // true
+```
+
+`includes` 只會回你有或沒有，如果你想知道確切位置的話，可以用 `indexOf`，如果沒有的話會回傳 -1，否則回傳符合的第一個位置。
+
+``` js
+'abc'.indexOf('http') // -1
+'http://'.indexOf('http') // 0
+'site url: http://abc'.indexOf('http') // 10
+```

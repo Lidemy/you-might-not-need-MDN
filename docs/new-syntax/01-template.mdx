@@ -1,1 +1,25 @@
-# template literal
+# 模板字串 template literal
+
+可以取代不太好讀也不太好寫的各種字串相加。
+
+## 基本使用
+
+只要在 `` 符號裡面用 `${}`，括號裡面就可以放 JavaScript 的程式碼，結果會變為字串的一部份。
+
+例如說原本要做這樣的字串拼接：
+
+``` js
+var name = 'peter'
+var phone = 12345
+var str = 'Hello, ' + name + ', your phone is: "' + phone + '"'
+```
+
+可以這樣子改寫：
+
+``` js
+var name = 'peter'
+var phone = 12345
+var str = `Hello, ${name}, your phone is: "${phone}"`
+```
+
+可讀性就高了很多，而且不用處理單引號雙引號的問題，少了很多麻煩。
