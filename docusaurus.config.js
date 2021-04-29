@@ -2,7 +2,7 @@
 module.exports = {
   title: 'You Might Not Need MDN',
   tagline: '沒有要反對 MDN 的意思，只是想要提供一個更簡易的 Cheat Sheet 給入門的開發者。',
-  url: 'https://you-might-not-need-mdn.netlify.app/',
+  url: 'https://alpha-lidemy-mdn.netlify.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -24,9 +24,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/Lidemy/you-might-not-need-MDN/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
