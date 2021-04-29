@@ -11,14 +11,10 @@ module.exports = {
   projectName: 'you-might-not-need-mdn', // Usually your repo name.
   themeConfig: {
     footer: {
-      copyright: `Copyright © ${new Date().getFullYear()} Lidemy, Inc. Built with Docusaurus.`,
+      copyright: `<a href="https://github.com/Lidemy/you-might-not-need-MDN" target="_blank">Source code.</a> Built with Docusaurus.`,
     },
     navbar: {
-      title: 'You Migh Not Need MDN',
-      logo: {
-        alt: 'Site Logo',
-        src: 'img/logo.png',
-      },
+      title: 'You Migh Not Need MDN'
     },
   },
   themes: ['@docusaurus/theme-live-codeblock'],

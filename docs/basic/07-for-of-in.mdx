@@ -1,0 +1,54 @@
+# 迴圈 for in 與 for of
+  
+除了之前介紹過的 for loop 以外，還有另外兩種要遍歷陣列或是物件時很方便的方法，for in 與 for of。
+
+## 基本使用
+
+### for in
+
+``` js
+let arr = [1, 2, 3]
+for(key in arr) {
+  console.log(key, arr[key])
+}
+
+// 0 1
+// 1 2
+// 2 3
+```
+
+for in 可以遍歷所有的 key，所以如果是陣列的話 key 就會是 0, 1, 2...，可以再搭配 `arr[key]` 把相對應的元素取出。
+
+``` js
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+for(key in obj) {
+  console.log(key, obj[key])
+}
+
+// a 1
+// b 2
+// c 3
+```
+
+物件也是，會把所有的 key 給取出來。
+
+### for of
+
+for in 是取出 key，而 for of 則是取出 value：
+
+``` js
+let arr = [1, 2, 3]
+for(value of arr) {
+  console.log(value)
+}
+
+// 1
+// 2
+// 3
+```
+
+只有可以迭代（iterable）的元素能使用 for of，物件不是，所以物件不行。

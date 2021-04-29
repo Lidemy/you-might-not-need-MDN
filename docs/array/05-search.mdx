@@ -1,0 +1,59 @@
+# 尋找元素 includes/indexOf/findIndex/find
+
+&nbsp;
+
+## 基本使用
+
+尋找元素有四種方法，分別適用在不同場合：
+
+1. includes 判斷陣列有沒有某個元素
+2. indexOf 同上，但會回傳元素在哪個位置
+3. findIndex 同上，但你可以自訂判斷的函式
+4. find 同上，但回傳值是找到的元素
+
+簡單來說，如果你是想在陣列中找一個簡單的值，例如說有沒有包含 `3`，或是有沒有 `peter`，那就用 includes 或是 indexOf。
+
+如果你想做更複雜的判斷邏輯而不只是看值本身，例如說有沒有包含`偶數`，那就用 findIndex 或是 find。
+
+### includes
+
+回傳陣列內是否有某個元素：
+
+``` js
+var arr = [1, 2, 3]
+console.log(arr.includes(2)) // true
+```
+
+### indexOf
+
+回傳陣列某個元素第一次出現的位置，沒出現則回傳 -1：
+
+``` js
+var arr = [1, 2, 3]
+console.log(arr.indexOf(2)) // 1
+console.log(arr.indexOf(10)) // -1
+```
+
+### findIndex
+
+接收一個判斷是否符合的函式，return true 代表符合，false 代表不符合。
+
+會回傳陣列某個元素第一次出現的位置，沒出現則回傳 -1：
+
+``` js
+var arr = [1, 2, 3]
+console.log(arr.findIndex(item => item % 2 === 0)) // 1
+console.log(arr.findIndex(item => item > 10)) // -1
+```
+
+### find
+
+接收一個判斷是否符合的函式，return true 代表符合，false 代表不符合。
+
+會回傳找到的元素，沒找到則回傳 undefined：
+
+``` js
+var arr = [1, 2, 3]
+console.log(arr.find(item => item % 2 === 0)) // 2
+console.log(arr.find(item => item > 10)) // -1
+```

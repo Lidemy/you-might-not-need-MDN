@@ -1,0 +1,41 @@
+# 凍結物件 freeze
+
+當你宣告 `const obj = {}` 的時候，你只是不能對 obj 重新賦值，但可以改變 obj 的屬性：`obj.a = 123`。
+
+如果你想讓一個物件沒辦法被改變的話，就需要 `Object.freeze()`。
+
+## 基本使用
+
+``` js
+const obj = {a: 1}
+Object.freeze(obj)
+obj.a = 2
+obj.b = 2
+console.log(obj) // {a: 1}
+```
+
+一旦物件被 freeze 之後，就無法改變屬性，也沒辦法新增或刪除屬性。
+
+在嚴格模式下會拋出錯誤：
+
+``` js
+'use strict'
+const obj = {a: 1}
+Object.freeze(obj)
+obj.a = 2
+// Uncaught TypeError: Cannot assign to read only property 'a' of object '#<Object>'
+```
+
+不過要注意的是 `Object.freeze()` 跟其他物件相關的函式一樣，都只對第一層有用。意思就是，如果你是 object 裡面含有 object，第二層的那個不會被 freeze：
+
+``` js
+'use strict'
+const obj = {
+  objInner: {a: 1}
+}
+Object.freeze(obj)
+obj.objInner.a = 2
+console.log(obj.objInner) // {a: 2}
+```
+
+如果你要連第二層都 freeze，那你需要再呼叫一次 `Object.freeze(obj.objInner)`。

@@ -1,0 +1,40 @@
+# 操控陣列元素 push/pop/shift/unshift
+
+&nbsp;
+
+## 基本使用
+
+這四個方法都會直接改變陣列。
+
+1. push 從陣列尾端加入元素，回傳陣列新長度
+2. pop 回傳陣列最後一個元素並且移除
+3. shift 回傳陣列第一個元素並且移除
+4. unshift 從陣列開頭加入元素，回傳陣列新長度
+
+### push 與 pop
+
+一個把東西放到最後面，一個從最後面拿元素出來：
+
+```
+var arr = [1, 2, 3]
+arr.push(4)
+console.log(arr) // [1, 2, 3, 4]
+
+var last = arr.pop()
+console.log(last) // 4
+console.log(arr) // 1, 2, 3
+```
+
+### shift 與 unshift
+
+一個把東西放到最前面，一個從最前面拿元素出來：
+
+```
+var arr = [1, 2, 3]
+arr.unshift(0)
+console.log(arr) // [0, 1, 2, 3]
+
+var last = arr.shift()
+console.log(last) // 0
+console.log(arr) // 1, 2, 3
+```

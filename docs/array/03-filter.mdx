@@ -1,0 +1,25 @@
+# 篩選陣列 filter
+
+&nbsp;
+
+## 基本使用
+
+傳入一個函式，裡面可以接受陣列的元素，如果回傳 true 代表元素要留下來，回傳 false 就代表不符合條件，要被篩選掉。
+
+``` js
+var arr = [1, 2, 3, 4, 5]
+var arr2 = arr.filter(function(item) {
+  return item > 3
+})
+console.log(arr2) // [4, 5]
+```
+
+如果你需要更多資訊，callback 完整的參數是 element, index, array：
+
+``` js
+var arr = [1, 2, 3, 4, 5]
+var arr2 = arr.filter(function(item, index, array) {
+  return index > 3
+})
+console.log(arr2) // [5]
+```

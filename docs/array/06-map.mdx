@@ -1,0 +1,35 @@
+# 轉換陣列 map
+
+&nbsp;
+
+## 基本使用
+
+如果你想把陣列內每一個元素都做轉換，那就適合用 map。如果你不在乎「轉換後的陣列」，只是想對每一個元素做事情，那你應該用 [forEach](/docs/array/for-each)。
+
+map 接受一個函式，會把每個元素都傳入這個函式，回傳值變成新的值：
+
+``` js
+var arr = [1, 2, 3]
+var arr2 = arr.map(item => item * 2)
+console.log(arr2) // [2, 4, 6]
+```
+
+可以做些更複雜的事情：
+
+``` js
+var arr = [1, 2, 3]
+var arr2 = arr.map(item => {
+  return {
+    num: item
+  }
+})
+console.log(arr2)
+
+/*
+  [
+    {num: 1},
+    {num: 2},
+    {num: 3}
+  ]
+*/
+```

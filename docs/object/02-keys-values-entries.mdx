@@ -1,0 +1,59 @@
+# 遍歷物件 keys, values 跟 entries
+
+如果你想要拿一個物件的所有 key，所有 value 或是我全都要，有三種內建函式：
+
+1. keys
+2. values
+3. entries
+
+## 基本使用
+
+### Object.keys
+
+顧名思義，可以把 object 的所有 keys 變成陣列。
+
+``` js
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+console.log(Object.keys(obj)) // ['a', 'b', 'c']
+```
+
+### Object.values
+
+顧名思義，可以把 object 的所有 values 變成陣列。
+
+``` js
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+console.log(Object.values(obj)) // [1, 2, 3]
+```
+
+### Object.entries
+
+我全都要，把 key 跟 value 都變成陣列。
+
+``` js
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+console.log(Object.entries(obj))
+
+/*
+  [
+    ['a', 1],
+    ['b', 2],
+    ['c', 3]
+  ]
+*/
+```

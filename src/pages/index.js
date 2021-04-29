@@ -27,7 +27,7 @@ export default function Home() {
             <ul>
               <li><Link to="/docs/basic/variable">基本語法</Link></li>
               <li><Link to="/docs/new-syntax/template">ES6</Link></li>
-              <li><Link to="/docs/object/assign">物件</Link></li>
+              <li><Link to="/docs/object/freeze">物件</Link></li>
               <li><Link to="/docs/array/concat">陣列</Link></li>
               <li><Link to="/docs/string/charCodeAt">字串</Link></li>
             </ul>

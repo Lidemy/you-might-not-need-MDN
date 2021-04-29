@@ -1,1 +1,21 @@
-# concat
+# 串接陣列 concat
+
+&nbsp;
+
+## 基本使用
+
+把兩個陣列拼起來，回傳新的陣列：
+
+``` js
+var arr1 = [1, 2, 3]
+console.log(arr1.concat([4, 5])) // [1, 2, 3, 4, 5]
+```
+
+原本的陣列並不會被改變，所以 arr1 依舊是 [1, 2, 3]。
+
+也可以用展開運算子（spread operator）做到差不多的事情：
+
+``` js
+var arr1 = [1, 2, 3]
+console.log([...arr1, ...[4, 5]])
+```
