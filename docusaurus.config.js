@@ -14,7 +14,7 @@ module.exports = {
       copyright: `<a href="https://github.com/Lidemy/you-might-not-need-MDN" target="_blank">Source code.</a> Built with Docusaurus.`,
     },
     navbar: {
-      title: 'You Migh Not Need MDN'
+      title: 'You Might Not Need MDN'
     },
   },
   themes: ['@docusaurus/theme-live-codeblock'],
